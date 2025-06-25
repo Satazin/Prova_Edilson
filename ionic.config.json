@@ -1,0 +1,7 @@
+{
+  "name": "Prova-Edson",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular-standalone"
+}
