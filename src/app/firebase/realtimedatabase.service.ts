@@ -5,7 +5,7 @@ import { firstValueFrom, from } from 'rxjs';
 @Injectable({
     providedIn: 'root'
 })
-export class DatabaseService {
+export class RealtimeDatabaseService {
 
     constructor(
         private db: Database = inject(Database)
