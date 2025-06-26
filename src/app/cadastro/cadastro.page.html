@@ -1,0 +1,26 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>cadastro</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">cadastro</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <ion-content class="ion-padding">
+  <ion-card>
+    <p>Nome</p>
+  <ion-input [(ngModel)]="nome" fill="solid" placeholder="Digite seu Nome"></ion-input>
+  
+  <p>E-Mail</p>
+  <ion-input [(ngModel)]="email" fill="solid" placeholder="Digite seu E-Mail"></ion-input>
+
+  <p>Senha</p>
+  <ion-input [(ngModel)]="senha" fill="solid" placeholder="Digite sua Senha"></ion-input>
+
+  <ion-button expand="block" (click)="salvar()">Cadastrar</ion-button>
+</ion-card>
+</ion-content>

@@ -1,20 +1,29 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
+import { IonicModule } from '@ionic/angular';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { IonContent, IonHeader, IonTitle, IonToolbar } from '@ionic/angular/standalone';
 
 @Component({
-  selector: 'app-tarefa4',
-  templateUrl: './tarefa4.page.html',
-  styleUrls: ['./tarefa4.page.scss'],
+  selector: 'app-tarefa1',
   standalone: true,
-  imports: [IonContent, IonHeader, IonTitle, IonToolbar, CommonModule, FormsModule]
+  imports: [IonicModule, CommonModule, FormsModule],
+  templateUrl: './tarefa4.page.html',
+  styleUrls: ['./tarefa4.page.scss']
 })
-export class Tarefa4Page implements OnInit {
+export class Tarefa1Page {
 
   constructor() { }
 
-  ngOnInit() {
+   ngOnInit() {
   }
 
+  titulo = '';
+  descricao = '';
+  usuarioSelecionado = '';
+  responsavel = '';
+  etapas = [
+    { descricao: '', status: '' },
+    { descricao: '', status: '' }
+  ];
+  statusOptions = ['Pendente', 'Em andamento', 'Concluído'];
 }
