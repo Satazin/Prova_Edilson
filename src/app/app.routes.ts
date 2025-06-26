@@ -9,13 +9,10 @@ export const routes: Routes = [
     path: '',
     redirectTo: 'home',
     pathMatch: 'full',
-  },  {
-    path: 'tarefa',
-    loadComponent: () => import('./tarefa/tarefa.page').then( m => m.TarefaPage)
   },
   {
-    path: 'tarefa1',
-    loadComponent: () => import('./tarefa/tarefa1/tarefa1.page').then( m => m.Tarefa1Page)
+    path: 'tarefa',
+    loadComponent: () => import('./tarefa/tarefa.page').then( m => m.TarefaPage)
   },
   {
     path: 'tarefa2',
@@ -28,6 +25,14 @@ export const routes: Routes = [
   {
     path: 'tarefa4',
     loadComponent: () => import('./tarefa/tarefa4/tarefa4.page').then( m => m.Tarefa4Page)
+  },
+  {
+    path: 'cadastro',
+    loadComponent: () => import('./cadastro/cadastro.page').then( m => m.CadastroPage)
+  },
+  {
+    path: 'login',
+    loadComponent: () => import('./login/login.page').then( m => m.LoginPage)
   },
 
 ];
