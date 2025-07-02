@@ -1,14 +1,15 @@
 import { Component } from '@angular/core';
 import { RouterLink } from '@angular/router';
-import { IonHeader, IonToolbar, IonTitle, IonContent, IonFab, IonFabButton, IonIcon, IonButton, IonList, IonItem, IonLabel, AlertController} from '@ionic/angular/standalone';
+import { AlertController} from '@ionic/angular/standalone';
 import { RealtimeDatabaseService } from '../firebase/realtimedatabase.service';
 import { CommonModule } from '@angular/common';
+import {IonicModule} from '@ionic/angular'
 
 @Component({
   selector: 'app-home',
   templateUrl: 'home.page.html',
   styleUrls: ['home.page.scss'],
-  imports: [IonLabel, IonItem, IonList,IonHeader, IonToolbar, IonTitle, IonContent,CommonModule],
+  imports: [ IonicModule,CommonModule],
 })
 export class HomePage {
   public dados: Array<any> = [];

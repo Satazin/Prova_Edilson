@@ -1,15 +1,15 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { IonContent, IonHeader, IonTitle, IonToolbar, IonImg, IonInput, IonButton, IonCard } from '@ionic/angular/standalone';
 import { RequisicaoService } from '../service/requisicao.service';
+import {IonicModule} from '@ionic/angular'
 
 @Component({
   selector: 'app-cadastro',
   templateUrl: './cadastro.page.html',
   styleUrls: ['./cadastro.page.scss'],
   standalone: true,
-  imports: [IonCard, IonButton, IonInput, IonContent, IonHeader, IonTitle, IonToolbar, CommonModule, FormsModule, ]
+  imports: [IonicModule, CommonModule, FormsModule, ]
 })
 export class CadastroPage implements OnInit {
   public nome: string = '';

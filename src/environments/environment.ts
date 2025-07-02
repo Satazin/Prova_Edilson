@@ -15,11 +15,11 @@ export const environment = {
  */
 // import 'zone.js/plugins/zone-error';  // Included with Angular CLI.
 export const firebaseConfig = {
-    apiKey: "AIzaSyA2KuAdSQzERGgCh1qRguAL79GQ5xraQyU",
-    authDomain: "td-app-senac.firebaseapp.com",
-    databaseURL: "https://td-app-senac-default-rtdb.firebaseio.com/",
-    projectId: "td-app-senac",
-    storageBucket: "td-app-senac.firebasestorage.app",
-    messagingSenderId: "54739359796",
-    appId: "1:54739359796:web:a0cca776df80c4a2ce9261"
-  };
+  apiKey: "AIzaSyBeRAk5SD_ZjHtyAz-E0mxuCr4gS8OnlTg",
+  authDomain: "prova-edson.firebaseapp.com",
+  databaseURL: "https://prova-edson-default-rtdb.firebaseio.com",
+  projectId: "prova-edson",
+  storageBucket: "prova-edson.firebasestorage.app",
+  messagingSenderId: "260099193873",
+  appId: "1:260099193873:web:39e1c09d94ec2279ac45b0"
+};

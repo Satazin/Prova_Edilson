@@ -9,10 +9,10 @@ export class AutenticacaoService {
     public rs: RequisicaoService,
   ) { }
 
-  logar(login: string, senha: string) {
+  logar(email: string, senha: string) {
     const fd = new FormData();
     fd.append('controller', 'logar');
-    fd.append('login', login);
+    fd.append('email', email);
     fd.append('senha', senha);
 
     return this.rs
