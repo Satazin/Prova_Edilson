@@ -1,0 +1,30 @@
+.responsavel-etapas {
+  margin-top: 16px;
+}
+
+.responsavel-box {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 8px 0;
+}
+
+.botoes {
+  margin-top: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+ion-label,
+ion-input,
+ion-textarea,
+ion-select,
+ion-button {
+  font-size: 14px !important; // ou menor se quiser
+}
+
+ion-title {
+  font-size: 18px !important;
+}
+

@@ -14,9 +14,19 @@ export const routes: Routes = [
   },
   {
     path: 'tarefa',
+<<<<<<< HEAD
     loadComponent: () => import('./tarefa/tarefa.page').then( m => m.TarefaPage),
     canActivate: [authGuard],
+=======
+    loadComponent: () => import('./tarefa/tarefa.page').then( m => m.Tarefa2Page)
+>>>>>>> 4cec9c961f0c7415d525ab6ce6c2cbee929262f0
   },
+  {
+    path: '',
+    redirectTo: 'home',
+    pathMatch: 'full',
+  },
+  
   {
     path: 'tarefa2',
     loadComponent: () => import('./tarefa/tarefa2/tarefa2.page').then( m => m.Tarefa2Page),
