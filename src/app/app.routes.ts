@@ -11,10 +11,6 @@ export const routes: Routes = [
     pathMatch: 'full',
   },
   {
-    path: 'tarefa',
-    loadComponent: () => import('./tarefa/tarefa.page').then( m => m.Tarefa2Page)
-  },
-  {
     path: '',
     redirectTo: 'home',
     pathMatch: 'full',
