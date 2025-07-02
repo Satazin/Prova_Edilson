@@ -1,6 +1,6 @@
 {
     "/requisicao": {
-        "target": "http://localhost/prova-edson/index.php",
+        "target": "http://localhost/Prova-edson/index.php",
         "secure": false,
         "changeOrigin": true,
         "logLevel": "debug"

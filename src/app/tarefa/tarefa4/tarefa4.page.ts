@@ -10,7 +10,7 @@ import { FormsModule } from '@angular/forms';
   templateUrl: './tarefa4.page.html',
   styleUrls: ['./tarefa4.page.scss']
 })
-export class Tarefa1Page {
+export class Tarefa4Page {
 
   constructor() { }
 

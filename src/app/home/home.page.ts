@@ -1,38 +1,43 @@
 import { Component } from '@angular/core';
-import { RouterLink } from '@angular/router';
-import { AlertController} from '@ionic/angular/standalone';
-import { RealtimeDatabaseService } from '../firebase/realtimedatabase.service';
 import { CommonModule } from '@angular/common';
-import {IonicModule} from '@ionic/angular'
+import { IonicModule, AlertController } from '@ionic/angular';
+import { RealtimeDatabaseService } from '../firebase/realtimedatabase.service';
 
 @Component({
   selector: 'app-home',
   templateUrl: 'home.page.html',
   styleUrls: ['home.page.scss'],
-  imports: [ IonicModule,CommonModule],
+  standalone: true,
+  imports: [IonicModule, CommonModule],
 })
 export class HomePage {
   public dados: Array<any> = [];
+
   constructor(
-    public rt : RealtimeDatabaseService,
+    public rt: RealtimeDatabaseService,
     private alertController: AlertController
-  ){}
+  ) {}
 
   ngOnInit() {
     this.load();
-    }
-  
-load(){
-  this.rt.query('/cadastro-tarefa', (snapshot: any) => {
-    if(snapshot.val() !== null){
-    this.dados = Object(snapshot.val()).
-    map((item: any, key:number) => {
-        item.id = key;
-        return item;
-      }).filter((item: any) => item != null);
-    }else{
-      this.dados = [];
-    }
+  }
+
+  load() {
+    this.rt.query('/tarefas', (snapshot: any) => {
+      const val = snapshot.val();
+      if (val !== null) {
+        this.dados = Object.entries(val).map(([key, item]: [string, any]) => {
+          const totalEtapas = item.etapas ? Object.keys(item.etapas).length : 0;
+          return {
+            id: key,
+            titulo: item.titulo,
+            responsavel: item.responsavel,
+            totalEtapas,
+          };
+        });
+      } else {
+        this.dados = [];
+      }
     });
   }
 }

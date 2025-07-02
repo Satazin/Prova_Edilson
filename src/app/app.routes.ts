@@ -14,12 +14,8 @@ export const routes: Routes = [
   },
   {
     path: 'tarefa',
-<<<<<<< HEAD
-    loadComponent: () => import('./tarefa/tarefa.page').then( m => m.TarefaPage),
+    loadComponent: () => import('./tarefa/tarefa.page').then( m => m.Tarefa2Page),
     canActivate: [authGuard],
-=======
-    loadComponent: () => import('./tarefa/tarefa.page').then( m => m.Tarefa2Page)
->>>>>>> 4cec9c961f0c7415d525ab6ce6c2cbee929262f0
   },
   {
     path: '',
@@ -50,5 +46,11 @@ export const routes: Routes = [
     path: 'login',
     loadComponent: () => import('./login/login.page').then( m => m.LoginPage)
   },
+  {
+    path: 'listar',
+    loadComponent: () => import('./listar/listar.page').then( m => m.ListarPage),
+    canActivate: [authGuard],
+  },
+
 
 ];
