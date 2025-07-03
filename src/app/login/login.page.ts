@@ -3,14 +3,15 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { IonContent, IonHeader, IonTitle, IonToolbar, IonInput, IonImg, IonButton, IonCard } from '@ionic/angular/standalone';
 import { RouterLink } from '@angular/router';
-import {AutenticacaoService} from '../service/autenticacao.service';
+import { AutenticacaoService } from '../service/autenticacao.service';
+import { IonicModule } from '@ionic/angular'
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.page.html',
   styleUrls: ['./login.page.scss'],
   standalone: true,
-  imports: [IonCard, IonButton, IonInput, IonContent, IonHeader, IonTitle, IonToolbar, CommonModule, FormsModule, RouterLink]
+  imports: [IonicModule, CommonModule, FormsModule, RouterLink]
 })
 export class LoginPage implements OnInit {
   public email: string = '';
@@ -22,20 +23,20 @@ export class LoginPage implements OnInit {
 
   ngOnInit() {
   }
-  logar(){
+  logar() {
     let email = this.email;
-    let senha = this.senha; 
+    let senha = this.senha;
 
     this.autenticacao_service
-    .logar(email, senha)
-    .subscribe(
-      (_res:any) =>{
-        if (_res.status == 'success'){
-          sessionStorage.setItem('token', _res.token);
-      }else{
+      .logar(email, senha)
+      .subscribe(
+        (_res: any) => {
+          if (_res.status == 'success') {
+            sessionStorage.setItem('token', _res.token);
+          } else {
 
-      }      
-      }
-    );
+          }
+        }
+      );
   }
 }

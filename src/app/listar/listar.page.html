@@ -1,24 +1,24 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>Início</ion-title>
+    <ion-title>Tarefas</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content class="ion-padding">
-  <ion-card *ngFor="let item of dados">
+  <ion-card *ngFor="let tarefa of tarefas">
     <ion-item>
       <ion-avatar slot="start">
-        <img alt="Silhouette of a person's head" src="https://ionicframework.com/docs/img/demos/avatar.svg" />
+        <img src="assets/img/avatar-default.png" />
       </ion-avatar>
       <ion-label>
-        <h2>{{ item.responsavel }}</h2>
+        <h2>{{ tarefa.responsavel }}</h2>
         <p>Responsável</p>
       </ion-label>
     </ion-item>
 
     <ion-card-content>
-      <h3>{{ item.titulo }}</h3>
-      <p>Total de etapas: {{ item.totalEtapas }}</p>
+      <h3>{{ tarefa.titulo }}</h3>
+      <p>Total de etapas: {{ tarefa.totalEtapas }}</p>
     </ion-card-content>
   </ion-card>
 </ion-content>

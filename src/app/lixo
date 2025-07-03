@@ -1,0 +1,112 @@
+//   cadastrarTarefa() {
+//     const dados = {
+//       titulo: this.titulo,
+//       descricao: this.descricao,
+//       usuario_id: this.usuarioSelecionado,
+//       responsavel_id: this.responsavel,
+//       etapas: this.etapas
+//     };
+
+//     this.http.post('http://localhost:3000/tarefa', dados).subscribe({
+//       next: () => alert('Tarefa cadastrada com sucesso!'),
+//       error: err => {
+//         console.error(err);
+//         alert('Erro ao cadastrar tarefa');
+//       }
+//     });
+//   }
+
+//     <ion-button expand="block" color="primary" (click)="cadastrarTarefa()">Cadastrar</ion-button>
+
+
+// titulo = '';
+//   descricao = '';
+//   usuarioSelecionado = '';
+//   responsavel = '';
+//   etapas = [{ descricao: '', status: '' }];
+//   dados = ['Pendente', 'Em andamento', 'Concluído'];
+//   usuarios: any[] = [];
+
+
+// <?php
+// $inputJSON = file_get_contents('php://input');
+// $input = json_decode($inputJSON, true);
+
+// $controller = isset($input['controller']) ? $input['controller'] : ''
+// ?>
+
+// <ion-header>
+//   <ion-toolbar>
+//     <ion-title>Tarefas</ion-title>
+//   </ion-toolbar>
+// </ion-header>
+
+// <ion-content class="ion-padding">
+//   <ion-card *ngFor="let tarefa of tarefas">
+//     <ion-item>
+//       <ion-avatar slot="start">
+//         <img src="assets/img/avatar-default.png" />
+//       </ion-avatar>
+//       <ion-label>
+//         <h2>{{ tarefa.responsavel }}</h2>
+//         <p>Responsável</p>
+//       </ion-label>
+//     </ion-item>
+
+//     <ion-card-content>
+//       <h3>{{ tarefa.titulo }}</h3>
+//       <p>Total de etapas: {{ tarefa.totalEtapas }}</p>
+//     </ion-card-content>
+//   </ion-card>
+// </ion-content>
+
+// import { Component, OnInit } from '@angular/core';
+// import { CommonModule } from '@angular/common';
+// import { FormsModule } from '@angular/forms';
+// import { IonicModule } from '@ionic/angular';
+// import { getDatabase, ref, onValue } from 'firebase/database';
+
+// @Component({
+//   selector: 'app-listar',
+//   templateUrl: './listar.page.html',
+//   styleUrls: ['./listar.page.scss'],
+//   standalone: true,
+//   imports: [IonicModule, CommonModule, FormsModule]
+// })
+// export class ListarPage implements OnInit {
+
+//   public tarefas: any[] = [];
+
+//   constructor() {}
+
+//   ngOnInit() {
+//     this.load();
+//   }
+
+//   load() {
+//     const db = getDatabase();
+//     const dbRef = ref(db, '/tarefa4');
+
+//     onValue(dbRef, (snapshot) => {
+//       if (snapshot.exists()) {
+//         const data = snapshot.val();
+//         this.tarefas = Object.entries(data).map(([id, item]: any) => {
+//           const totalEtapas = item.etapas ? Object.keys(item.etapas).length : 0;
+//           return {
+//             id,
+//             titulo: item.titulo,
+//             responsavel: item.responsavel,
+//             totalEtapas
+//           };
+//         });
+//       } else {
+//         this.tarefas = [];
+//       }
+//     });
+//   }
+// }
+
+    // <!-- <ion-card-content>
+    //   <h3>{{ tarefa.titulo }}</h3>
+    //   <p>Total de etapas: {{ tarefa.totalEtapas }}</p>
+    // </ion-card-content>

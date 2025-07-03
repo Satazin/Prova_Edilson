@@ -1,47 +1,84 @@
-import { Component } from '@angular/core';
-import { IonicModule } from '@ionic/angular';
+import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { Firestore, collection, addDoc } from '@angular/fire/firestore';
-
+import { IonContent, IonHeader, IonTitle, IonToolbar, IonInput, IonButton, IonList, IonItem } from '@ionic/angular/standalone';
+import { AlertController } from '@ionic/angular';
+import { RouterLink } from '@angular/router';
+import { RealtimeDatabaseService } from 'src/app/firebase/realtimedatabase.service';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-tarefa4',
-  standalone: true,
-  imports: [IonicModule, CommonModule, FormsModule],
   templateUrl: './tarefa4.page.html',
-  styleUrls: ['./tarefa4.page.scss']
+  styleUrls: ['./tarefa4.page.scss'],
+  standalone: true,
+  imports: [IonContent, IonHeader, IonTitle, IonToolbar, CommonModule, FormsModule, IonInput, IonButton, IonList, IonItem
+  ]
 })
-export class Tarefa4Page {
+export class Tarefa4Page implements OnInit {
 
-  constructor(private firestore: Firestore) {}
+  public id: number = 0
+  public titulo: string = ''
+  public responsavel: string = ''
+  public descricao: string = ''
 
-  titulo = '';
-  descricao = '';
-  usuarioSelecionado = '';
-  responsavel = '';
-  etapas = [
-    { descricao: '', status: '' },
-    { descricao: '', status: '' }
-  ];
-  statusOptions = ['Pendente', 'Em andamento', 'Concluído'];
+  constructor(
+    private rt: RealtimeDatabaseService,
+    private ar: ActivatedRoute,
+    private alertController: AlertController,
+    private router: Router
 
-  async cadastrarTarefa() {
-    const dados = {
+  ) {
+
+    this.ar.params.subscribe((param: any) => {
+      this.id = param.id
+    })
+  }
+
+  ngOnInit() {
+    this.load()
+  }
+
+  async presentAlert() {
+    const alert = await this.alertController.create({
+      header: 'Salvo Com Sucesso',
+      buttons: [{
+        text: 'OK',
+        role: 'confirm',
+        handler: () => {
+          this.router.navigateByUrl('/home');
+        }
+      }]
+    });
+
+    await alert.present();
+  }
+  salvar() {  
+    this.rt.add('/home', {
       titulo: this.titulo,
-      descricao: this.descricao,
-      usuario_id: this.usuarioSelecionado,
-      responsavel_id: this.responsavel,
-      etapas: this.etapas
-    };
+      responsavel: this.responsavel,
+      descricao: this.descricao
+    }, this.id).subscribe({
+      next: (res: any) => {
+        console.log(res);
+        this.presentAlert();
+      },
+      error: (err) => {
+        console.log('Falhou', err);
+      }
+    });
+  }
 
-    try {
-      const tarefasRef = collection(this.firestore, 'tarefas');
-      await addDoc(tarefasRef, dados);
-      alert('Tarefa cadastrada com sucesso!');
-    } catch (err) {
-      console.error(err);
-      alert('Erro ao salvar no Firebase');
-    }
+  load() {
+    const indice = this.id == 0 ? '' : this.id;
+    this.rt.query(`/home/${indice}`, (snapshot: any) => {
+      const dados = Object(snapshot.val());
+      this.titulo = dados.titulo;
+      this.responsavel = dados.responsavel;
+      this.descricao = dados.descricao;
+    });
   }
 }
+
+
+
