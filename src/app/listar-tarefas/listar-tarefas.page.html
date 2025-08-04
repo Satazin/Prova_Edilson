@@ -1,0 +1,37 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>Listar</ion-title>
+    <ion-buttons slot="end">
+      <ion-button routerLink="/criar-tarefa">
+        <ion-icon name="add"></ion-icon>
+      </ion-button>
+    </ion-buttons>        
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">Listar</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <ion-list>
+    <ion-item *ngFor="let item of dados">
+      {{ item.titulo }}
+      <ion-button routerLink="/criar-tarefa/{{ item.id }}" slot="end">
+        <ion-icon name="pencil"></ion-icon>
+      </ion-button>
+      <ion-button id="present-alert-{{item.id}}" slot="end"  color="danger">
+        <ion-icon name="trash" ></ion-icon>
+      </ion-button>
+      <ion-alert
+        trigger="present-alert-{{item.id}}"
+        header="Tem certeza que deseja excluir?"
+        [buttons]="alertButtons"
+        (didDismiss)="setResult($event,item.id)"
+      ></ion-alert>
+    </ion-item>
+  </ion-list>
+
+</ion-content>

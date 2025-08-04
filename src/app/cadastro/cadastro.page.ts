@@ -1,33 +1,62 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { IonicModule } from '@ionic/angular';
-import { RequisicaoService } from '../service/requisicao.service';
+import { 
+  IonContent, 
+  IonHeader, 
+  IonTitle, 
+  IonToolbar, 
+  IonCard, 
+  IonCardHeader, 
+  IonCardContent, 
+  IonCardTitle,
+  IonInput,
+  IonInputPasswordToggle,
+  IonButton,
+} from '@ionic/angular/standalone';
+import { RouterLink } from '@angular/router';
+import { RequisicaoService } from '../requisicao.service';
 
 @Component({
   selector: 'app-cadastro',
   templateUrl: './cadastro.page.html',
   styleUrls: ['./cadastro.page.scss'],
   standalone: true,
-  imports: [IonicModule, CommonModule, FormsModule, ]
+  imports: [IonInput, 
+    IonContent, 
+    IonHeader, 
+    IonTitle, 
+    IonToolbar, 
+    CommonModule, 
+    FormsModule,  
+    IonCard, 
+    IonCardHeader, 
+    IonCardContent, 
+    IonCardTitle,
+    IonInputPasswordToggle,
+    IonButton,
+    RouterLink
+  ]
 })
 export class CadastroPage implements OnInit {
-  public nome: string = '';
-  public email: string = '';
-  public senha: string = '';
+  public login:string = "";
+  public nome:string = "";
+  public email:string = "";
+  public senha:string = "";
 
   constructor(
-    public rs: RequisicaoService,
+    public rs:RequisicaoService
   ) { }
 
   ngOnInit() {
+    
   }
 
-  salvar() {
-
+  post(){
     const fd = new FormData();
-    fd.append('controller', 'cadastro-usuario');
+    fd.append('controller','cadastro-usuario');
     fd.append('nome', this.nome);
+    fd.append('login', this.login);
     fd.append('email', this.email);
     fd.append('senha', this.senha);
 

@@ -1,0 +1,19 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>Criar tarefa</ion-title>
+  </ion-toolbar>  
+</ion-header>
+
+<ion-content [fullscreen]="true" class="ion-padding">
+  <h2>Criar tarefa</h2>
+  <ion-input label="Titulo" label-placement="floating" fill="outline" [(ngModel)]="titulo"></ion-input>
+  <br>
+  <ion-textarea label="Descrição" label-placement="floating" fill="outline" [autoGrow]="true" [(ngModel)]="descricao"></ion-textarea>
+  <br>
+  <ion-input label="Responsavel" label-placement="floating" fill="outline" [(ngModel)]="responsavel"></ion-input>
+  <h2>Etapas</h2>
+  <ion-input label="Etapa1" label-placement="floating" fill="outline" [(ngModel)]="etapa1"></ion-input><br>
+  <ion-input label="Etapa2" label-placement="floating" fill="outline" [(ngModel)]="etapa2"></ion-input><br>
+  <ion-input label="Etapa3" label-placement="floating" fill="outline" [(ngModel)]="etapa3"></ion-input><br><br>
+  <ion-button expand="block" (click)="salvar()">Salvar</ion-button>
+</ion-content>

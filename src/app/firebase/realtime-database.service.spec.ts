@@ -1,8 +1,8 @@
 import { TestBed } from '@angular/core/testing';
 
-import { RealtimeDatabaseService } from './realtimedatabase.service';
+import { RealtimeDatabaseService } from './realtime-database.service';
 
-describe('RealtimedatabaseService', () => {
+describe('RealtimeDatabaseService', () => {
   let service: RealtimeDatabaseService;
 
   beforeEach(() => {

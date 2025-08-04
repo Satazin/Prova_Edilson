@@ -2,8 +2,6 @@
 // `ng build` replaces `environment.ts` with `environment.prod.ts`.
 // The list of file replacements can be found in `angular.json`.
 
-import { initializeApp } from "@angular/fire/app";
-
 export const environment = {
   production: false
 };
@@ -16,13 +14,13 @@ export const environment = {
  * on performance if an error is thrown.
  */
 // import 'zone.js/plugins/zone-error';  // Included with Angular CLI.
+
 export const firebaseConfig = {
-  apiKey: "AIzaSyDqxdAyttmtZpHk59CApuphOUSH4a93T9g",
-  authDomain: "edson-b0eb1.firebaseapp.com",
-  databaseURL: "https://edson-b0eb1-default-rtdb.firebaseio.com",
-  projectId: "edson-b0eb1",
-  storageBucket: "edson-b0eb1.firebasestorage.app",
-  messagingSenderId: "222433963194",
-  appId: "1:222433963194:web:15ee32f8b510b6e789a683"
+  apiKey: "AIzaSyA2KuAdSQzERGgCh1qRguAL79GQ5xraQyU",
+  authDomain: "td-app-senac.firebaseapp.com",
+  databaseURL: "https://td-app-senac-default-rtdb.firebaseio.com",
+  projectId: "td-app-senac",
+  storageBucket: "td-app-senac.firebasestorage.app",
+  messagingSenderId: "54739359796",
+  appId: "1:54739359796:web:a0cca776df80c4a2ce9261"
 };
-const app = initializeApp(firebaseConfig);
